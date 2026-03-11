@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+    <title> Rathan Divs List</title>
+     <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h1>Rathan Builds lists with divs</h1>
+		<div class="flex-container" id="target">
+		  <div>row item 1</div>   
+		  <div>row item 2</div>  
+		  <div>row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add one</button>
+        <button onclick="removeDiv()">Remove</button>
+        <button onclick="addFront()">Add Front</button>
+	
+	
+</body>
+<script>
+    let counter = 3
+	function makeNewDiv(){
+
+    counter = counter + 1
+
+    let element = document.createElement("div")
+    element.innerHTML = "row item " + counter
+    element.style.color = "orange"
+
+    let container = document.getElementById('target')
+    container.appendChild(element)
+}
+function removeDiv(){
+
+    let container = document.getElementById("target")
+
+    if(container.children.length > 0){
+        container.removeChild(container.lastElementChild)
+    }
+
+}
+function addFront(){
+
+    counter = counter + 1
+
+    let element = document.createElement("div")
+    element.innerHTML = "row item " + counter
+    element.style.color = "blue"
+
+    let container = document.getElementById("target")
+
+    container.insertBefore(element, container.firstChild)
+
+}
+</script>
+</html>	
