@@ -101,24 +101,28 @@ let id = ids[position]
 let image = document.getElementById(id)
 
 if(position == statueLocation){
-image.src = "statue.jpg"
+image.src = "statue.jpeg"
 score -= 3
 gameOver = true
 }
 
 else if(position == toucanLocation){
-image.src = "toucan.jpg"
+image.src = "toucan.jpeg"
 score += 5
 }
 
 else if(lorikeetLocations.includes(position)){
-image.src = "lorikeet.jpg"
+image.src = "lorikeet.jpeg"
 score += 3
 }
 
 else if(buntingLocations.includes(position)){
 image.src = "bunting.jpg"
 score += 1
+}
+
+else{
+image.src = "bush.jpg"
 }
 
 image.onclick = ""
@@ -163,6 +167,6 @@ document.getElementById("help").innerHTML = "silence"
 
 }
 
-</Script>
+</script>
 </body>
 </html>
