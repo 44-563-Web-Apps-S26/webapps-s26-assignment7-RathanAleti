@@ -41,6 +41,16 @@
 	
 </body>
 <script>
+    function randomColor(){
+    let letters = "0123456789ABCDEF"
+    let color = "#"
+
+    for(let i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random()*16)]
+    }
+
+    return color
+}
     let counter = 3
 	function makeNewDiv(){
 
@@ -48,7 +58,7 @@
 
     let element = document.createElement("div")
     element.innerHTML = "row item " + counter
-    element.style.color = "orange"
+    element.style.color = randomColor()
 
     let container = document.getElementById('target')
     container.appendChild(element)
@@ -60,6 +70,19 @@ function removeDiv(){
     if(container.children.length > 0){
         container.removeChild(container.lastElementChild)
     }
+function addFront(){
+
+    counter = counter + 1
+
+    let element = document.createElement("div")
+    element.innerHTML = "row item " + counter
+    element.style.color = randomColor()
+
+    let container = document.getElementById("target")
+
+    container.insertBefore(element, container.firstChild)
+
+}
 
 }
 
